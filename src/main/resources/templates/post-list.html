@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div th:each="post: ${postList}">
+    <div>
+        <h1 th:text="${post.title}"></h1>
+        <h4 th:text="${post.text}"></h4>
+        <h6 th:text="${post.user.username}"></h6>
+        <h6 th:text="${post.user.createdAt}"></h6>
+        <a th:href="@{/showCommentForm(postId=${post.id})}" class="btn btn-info">Create a comment</a>
+        <a th:href="@{/seeComments(postId=${post.id})}" class="btn btn-info">Create a comment</a>
+    </div>
+</div>
+
+</body>
+</html>
