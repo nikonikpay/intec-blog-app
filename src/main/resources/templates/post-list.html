@@ -14,7 +14,7 @@
         <h6 th:text="${post.user.username}"></h6>
         <h6 th:text="${post.user.createdAt}"></h6>
         <a th:href="@{/showCommentForm(postId=${post.id})}" class="btn btn-info">Create a comment</a>
-        <a th:href="@{/seeComments(postId=${post.id})}" class="btn btn-info">Create a comment</a>
+        <a th:href="@{/showPostWithComment(postId=${post.id})}" class="btn btn-info">See comments</a>
     </div>
 </div>
 

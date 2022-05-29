@@ -53,6 +53,20 @@ public class CommentController {
         return mav;
     }
 
+    @GetMapping("/showPostWithComment")
+    public ModelAndView showPostWithComments(@RequestParam Long postId) {
+        ModelAndView mav = new ModelAndView("post-comment-form");
+
+        Post post = postService.getBlogPostById(postId);
+
+        List<Comment> comments = commentService.findByCommentedToPost(post);
+
+        System.out.println(comments);
+        mav.addObject("postInComment",post);
+        mav.addObject("myComment", comments);
+        return mav;
+    }
+
 
     @PostMapping("/saveComment")
     public String saveEmployee(@ModelAttribute Comment comment) {

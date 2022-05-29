@@ -10,6 +10,8 @@ public interface CommentService {
 
     Comment getBlogPostCommentById(long id);
 
+    List<Comment> findByCommentedToPost(Post post);
+
     Comment createComment(Comment comment);
 
     void deleteComment(long id);

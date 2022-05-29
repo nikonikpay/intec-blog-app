@@ -14,9 +14,11 @@ public class CommentServiceImpl implements CommentService{
 
     private CommentsRepository blogCommentRepository;
 
+
     @Autowired
-    public void setBlogPostRepository(CommentsRepository blogCommentRepository) {
+    public void setBlogPostRepository(CommentsRepository blogCommentRepository ) {
         this.blogCommentRepository = blogCommentRepository;
+
     }
 
 
@@ -27,6 +29,11 @@ public class CommentServiceImpl implements CommentService{
 
     public Comment getBlogPostCommentById(long id) {
         return blogCommentRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<Comment> findByCommentedToPost(Post post) {
+        return blogCommentRepository.findByCommentedToPost(post);
     }
 
     @Override
